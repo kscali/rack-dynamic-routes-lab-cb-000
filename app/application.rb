@@ -5,11 +5,19 @@ class Application
     resp = Rack::Response.new 
     req = Rack::Request.new(env)
     
-    if req.path = "/items/"
+    if req.path = "/items/#{name}"
+      resp.write = "#{price}"
+    else 
+      resp.write = 404 
+    end 
+  resp.finish
+  end 
+end 
+      
   
   
   
   
   
   
-end   
+ 
