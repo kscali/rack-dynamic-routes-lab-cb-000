@@ -5,8 +5,12 @@ class Application
     resp = Rack::Response.new 
     req = Rack::Request.new(env)
     
-    if req.path = "/items/#{name}"
-      resp.write = "#{price}"
+    if req.path.match(/items/)
+      item_name = req.path.split("/items/").last 
+      item= @@items.find{|i| i.item = item_name}
+      
+      resp.write item.price 
+      
     else 
       resp.write = 404 
     end 
