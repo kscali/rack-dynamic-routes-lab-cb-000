@@ -12,7 +12,7 @@ class Application
       resp.write item.price 
       
     else 
-      resp.write = 404 
+      resp.write 404 
     end 
   resp.finish
   end 
